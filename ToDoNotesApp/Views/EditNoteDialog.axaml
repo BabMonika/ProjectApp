@@ -1,0 +1,19 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodels="clr-namespace:ToDoNotesApp.ViewModels"
+        x:Class="ToDoNotesApp.Views.EditNoteDialog"
+        Title="Edit Note" Width="400" Height="300"
+        mc:Ignorable="d">
+	<Design.DataContext>
+		<viewmodels:EditNoteViewModel/>
+	</Design.DataContext>
+	<StackPanel Margin="10">
+		<TextBlock Text="Title" FontWeight="Bold"/>
+		<TextBox Text="{Binding Title}" Margin="0,5,0,10"/>
+		<TextBlock Text="Description" FontWeight="Bold"/>
+		<TextBox Text="{Binding Description}" Margin="0,5,0,10"/>
+		<Button Content="Save" Command="{Binding SaveCommand}" HorizontalAlignment="Right"/>
+	</StackPanel>
+</Window>

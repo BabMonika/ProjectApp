@@ -1,0 +1,20 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodels="clr-namespace:ToDoNotesApp.ViewModels"
+        x:Class="ToDoNotesApp.Views.EditTaskDialog"
+        Title="Edit Task" Width="400" Height="300"
+        mc:Ignorable="d">
+	<Design.DataContext>
+		<viewmodels:EditTaskViewModel/>
+	</Design.DataContext>
+	<StackPanel Margin="10">
+		<TextBlock Text="Name" FontWeight="Bold"/>
+		<TextBox Text="{Binding Name}" Margin="0,5,0,10"/>
+		<TextBlock Text="Date" FontWeight="Bold"/>
+		<DatePicker SelectedDate="{Binding Date}" Margin="0,5,0,10"/>
+		<CheckBox IsChecked="{Binding IsCompleted}" Content="Completed"/>
+		<Button Content="Save" Command="{Binding SaveCommand}" HorizontalAlignment="Right"/>
+	</StackPanel>
+</Window>

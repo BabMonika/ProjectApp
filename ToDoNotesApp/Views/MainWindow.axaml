@@ -1,0 +1,36 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ToDoNotesApp.Views"
+        xmlns:viewmodels="clr-namespace:ToDoNotesApp.ViewModels"
+        x:Class="ToDoNotesApp.Views.MainWindow"
+        Title="ToDoNotesApp" Width="800" Height="450"
+        mc:Ignorable="d">
+	<Design.DataContext>
+		<viewmodels:MainViewModel/>
+	</Design.DataContext>
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="200"/>
+			<ColumnDefinition Width="10"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+
+		<Border Grid.Column="0" Background="LightGray">
+			<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+				<Button Content="Notes" Command="{Binding ShowNotesCommand}" Margin="10" Width="150" Background="DarkGray" Foreground="White" BorderBrush="White" BorderThickness="3" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+				<Button Content="ToDo" Command="{Binding ShowToDoCommand}" Margin="10" Width="150" Background="DarkGray" Foreground="White" BorderBrush="White" BorderThickness="3" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+			</StackPanel>
+		</Border>
+
+		<StackPanel Grid.Column="1" Background="White" Width="4">
+		</StackPanel>
+		<StackPanel Grid.Column="1" Background="White" Width="4" Margin="4,0,0,0">
+		</StackPanel>
+
+		<Border Grid.Column="2" Background="Gray">
+			<ContentControl Content="{Binding CurrentView}"/>
+		</Border>
+	</Grid>
+</Window>
